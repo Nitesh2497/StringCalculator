@@ -28,4 +28,9 @@ public class StringCalculatorTestTDD {
     public void testAddingMultipleNumbers() {
         assertEquals(12, stringCalculator.add("3,4,5"));
     }
+
+    @Test
+    public void testAddingNumbersWithNewLineDelimiter() {
+        assertEquals(6, stringCalculator.add("1\n2,3"));
+    }
 }
