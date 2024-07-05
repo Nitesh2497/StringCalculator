@@ -1,15 +1,14 @@
-import java.util.regex.Pattern;
 
 public class StringCalculator {
 
-    public int add(String numbers){
-        if(numbers.length()<2) {
+    public int add(String numbers) {
+        if (numbers.length() < 2) {
             if (numbers.isEmpty()) {
                 return 0;
             } else {
                 return Integer.valueOf(numbers);
             }
-        }else{
+        } else {
 
             String delimiter = ",|\n";
             String numberString = numbers;
