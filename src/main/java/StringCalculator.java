@@ -1,3 +1,4 @@
+import java.util.regex.Pattern;
 
 public class StringCalculator {
 
@@ -20,11 +21,28 @@ public class StringCalculator {
             }
 
             String[] number = numberString.split(delimiter);
-            int sum = 0;
-            for (String num : number) {
-                sum += Integer.valueOf(num.trim());
-            }
-            return sum;
+            return sum(number);
         }
+    }
+
+    private int sum(String[] numbers) {
+        int sum = 0;
+        StringBuilder negativeString = new StringBuilder();
+
+        for (String number : numbers) {
+            if (Integer.valueOf(number) < 0) {
+                if (negativeString.toString().equals(""))
+                    negativeString = new StringBuilder(number);
+                else
+                    negativeString.append(",").append(number);
+            } else {
+                sum += Integer.valueOf(number);
+            }
+        }
+            if (!negativeString.toString().equals("")) {
+                throw new IllegalArgumentException("Negatives not allowed " + negativeString);
+            }
+
+        return sum;
     }
 }
