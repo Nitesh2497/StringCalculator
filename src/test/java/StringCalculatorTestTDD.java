@@ -24,4 +24,8 @@ public class StringCalculatorTestTDD {
         assertEquals(1, stringCalculator.add("1"));
     }
 
+    @Test
+    public void testAddingMultipleNumbers() {
+        assertEquals(12, stringCalculator.add("3,4,5"));
+    }
 }
