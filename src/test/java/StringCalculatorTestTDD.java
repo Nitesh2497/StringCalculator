@@ -19,4 +19,9 @@ public class StringCalculatorTestTDD {
         assertEquals(0,stringCalculator.add(""));
     }
 
+    @Test
+    public void testAddingOnlyOneNumber() {
+        assertEquals(1, stringCalculator.add("1"));
+    }
+
 }
