@@ -1,3 +1,4 @@
+import java.util.regex.Pattern;
 
 public class StringCalculator {
 
@@ -9,7 +10,17 @@ public class StringCalculator {
                 return Integer.valueOf(numbers);
             }
         }else{
-            String[] number = numbers.split("[,\n]");
+
+            String delimiter = ",|\n";
+            String numberString = numbers;
+
+            if (numbers.startsWith("//")) {
+                int delimiterIndex = numbers.indexOf('\n');
+                delimiter = numbers.substring(2, delimiterIndex);
+                numberString = numbers.substring(delimiterIndex + 1);
+            }
+
+            String[] number = numberString.split(delimiter);
             int sum = 0;
             for (String num : number) {
                 sum += Integer.valueOf(num.trim());
